@@ -1,0 +1,23 @@
+.footer {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: #8f57fd;
+    height: 100px;
+    width: 100%;
+    @media only screen and (min-width: 600px) {
+        align-items: center;
+        flex-direction: unset;
+    }
+    a{
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        padding-left: 30px;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
