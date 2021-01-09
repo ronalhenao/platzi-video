@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-// import Header from '../components/Header';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-// import Footer from '../components/Footer';
 import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
@@ -15,7 +14,7 @@ const Home = () => {
 
     const initialState = useInitialState(API);
 
-    return (
+    return initialState.length === 0 ? <h1>Loading...</h1> : (
         <>
             <Search />
 
@@ -59,4 +58,14 @@ const Home = () => {
     )
 };
 
-export default Home;
+// export default Home;
+
+const mapStateToProps = state => {
+    return {
+        myList: state.myList,
+        trends: state.trends,
+        originals: state.originals,
+      }
+}
+
+export default connect( mapStateToProps, null )(Home);
