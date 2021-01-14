@@ -8,20 +8,20 @@ import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
 
-const API = 'http://localhost:3000/initialState';
+// const API = 'http://localhost:3000/initialState';
 
-const Home = () => {
+const Home = ({ myList, trends, originals }) => {
 
-    const initialState = useInitialState(API);
+    // const initialState = useInitialState(API);
 
-    return initialState.length === 0 ? <h1>Loading...</h1> : (
+    return (
         <>
             <Search />
 
-            { initialState.mylist.length > 0 && (
+            { myList.length > 0 && (
                 <Categories title="Mi lista">
                     <Carousel>
-                        { initialState.mylist.map( item =>
+                        { myList.map( item =>
                             <CarouselItem 
                                 key={ item.id }
                                 { ...item }
@@ -34,7 +34,7 @@ const Home = () => {
 
             <Categories title="Tendencias">
                 <Carousel>
-                    { initialState.trends.map( item => 
+                    { trends.map( item => 
                         <CarouselItem 
                             key={ item.id }
                             { ...item }
@@ -45,7 +45,7 @@ const Home = () => {
 
             <Categories title="Originales">
                 <Carousel>
-                    { initialState.originals.map( item => 
+                    { originals.map( item => 
                         <CarouselItem 
                             key={ item.id }
                             { ...item }

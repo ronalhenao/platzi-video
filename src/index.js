@@ -1,14 +1,14 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { reducer } from './reducers';
+import reducer from './reducers';
 import App from './routes/App';
 
 const initialState = {
     "user": {},
     "playing": {},
-    "mylist": [],
+    "myList": [],
     "trends": [
         {
             "id": 2,
@@ -173,7 +173,7 @@ const initialState = {
 
 const store = createStore(reducer, initialState);
 
-ReactDom.render( 
+ReactDOM.render( 
     <Provider store={ store }>
         <App />
     </Provider>, 
