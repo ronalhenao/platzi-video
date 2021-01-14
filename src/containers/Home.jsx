@@ -25,12 +25,12 @@ const Home = ({ myList, trends, originals }) => {
                             <CarouselItem 
                                 key={ item.id }
                                 { ...item }
+                                isList
                             />
                         )}
                     </Carousel>
                 </Categories>
             )}
-
 
             <Categories title="Tendencias">
                 <Carousel>
